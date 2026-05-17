@@ -31,6 +31,11 @@ const tasks = [
   }
 ];
 
+const studentBox = document.getElementById("studentBox");
+const diagnosisCard = document.getElementById("diagnosisCard");
+const studentNameInput = document.getElementById("studentName");
+const startBtn = document.getElementById("startBtn");
+
 const questionCounter = document.getElementById("questionCounter");
 const liveScore = document.getElementById("liveScore");
 const taskText = document.getElementById("taskText");
@@ -43,6 +48,23 @@ let currentTask = 0;
 let score = 0;
 let answered = false;
 let answers = [];
+let studentName = "";
+
+startBtn.addEventListener("click", () => {
+  studentName = studentNameInput.value.trim();
+
+  if (!studentName) {
+    alert("Please write your name first.");
+    return;
+  }
+
+  localStorage.setItem("currentStudentName", studentName);
+
+  studentBox.classList.add("hidden");
+  diagnosisCard.classList.remove("hidden");
+
+  loadTask();
+});
 
 function loadTask() {
   const task = tasks[currentTask];
@@ -80,6 +102,7 @@ function chooseAnswer(selected) {
 
   answers.push({
     question: currentTask + 1,
+    text: task.text,
     selected: selected,
     correct: task.answer,
     isCorrect: isCorrect
@@ -102,14 +125,35 @@ nextBtn.addEventListener("click", () => {
   currentTask++;
 
   if (currentTask >= tasks.length) {
-    localStorage.setItem("diagnosisScore", score);
-    localStorage.setItem("diagnosisTotal", tasks.length);
-    localStorage.setItem("diagnosisAnswers", JSON.stringify(answers));
-    window.location.href = "result.html";
+    finishDiagnosis();
     return;
   }
 
   loadTask();
 });
 
-loadTask();
+function finishDiagnosis() {
+  const percent = Math.round((score / tasks.length) * 100);
+
+  const result = {
+    id: Date.now(),
+    name: studentName,
+    score: score,
+    total: tasks.length,
+    percent: percent,
+    date: new Date().toLocaleString(),
+    answers: answers
+  };
+
+  localStorage.setItem("diagnosisScore", score);
+  localStorage.setItem("diagnosisTotal", tasks.length);
+  localStorage.setItem("diagnosisAnswers", JSON.stringify(answers));
+  localStorage.setItem("diagnosisStudentName", studentName);
+
+  const savedResults = JSON.parse(localStorage.getItem("teacherResults")) || [];
+  savedResults.push(result);
+
+  localStorage.setItem("teacherResults", JSON.stringify(savedResults));
+
+  window.location.href = "result.html";
+}
