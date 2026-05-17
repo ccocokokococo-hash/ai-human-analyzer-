@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnosis Tasks</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" 
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav class="nav page-nav">
+    <div class="logo">
+      <span class="logo-icon">✦</span>
+      <span>AI or Human?</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tasks.html">Diagnosis</a>
+      <a href="analyzer.html">Analyzer</a>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <section class="section-title">
+      <p class="tag">Diagnosis Tasks</p>
+      <h1 class="page-title">AI or Human?</h1>
+      <p>
+        Read each text and choose who wrote it. After finishing, you will see your personal result.
+      </p>
+    </section>
+
+    <section class="diagnosis-card">
+      <div class="progress-row">
+        <span id="questionCounter">Question 1 / 6</span>
+        <span id="liveScore">Score: 0</span>
+      </div>
+
+      <div class="task-text" id="taskText"></div>
+
+      <div class="task-buttons">
+        <button class="btn ai-btn" id="aiBtn">AI</button>
+        <button class="btn human-btn" id="humanBtn">Human</button>
+      </div>
+
+      <div class="task-feedback" id="taskFeedback"></div>
+
+      <button class="btn secondary next-task" id="nextBtn">Next Task</button>
+    </section>
+  </main>
+
+  <script src="js/tasks.js"></script>
+</body>
+</html>
