@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>My Result</title>
+
   <link rel="stylesheet" href="css/style.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link 
     href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" 
-    rel="stylesheet">
+    rel="stylesheet"
+  >
 </head>
 
 <body>
@@ -24,13 +27,16 @@
       <a href="index.html">Home</a>
       <a href="tasks.html">Diagnosis</a>
       <a href="analyzer.html">Analyzer</a>
+      <a href="teacher.html">Teacher</a>
     </div>
   </nav>
 
   <main class="page-main">
     <section class="result-page-card">
       <p class="tag">Personal Result</p>
+
       <h1>Your Diagnosis Result</h1>
+      <h2 class="student-result-name" id="studentResultName">Student Name</h2>
 
       <div class="big-score" id="bigScore">0 / 6</div>
       <div class="level-badge" id="levelBadge">Level</div>
@@ -55,6 +61,8 @@
       <div class="button-row center">
         <a href="tasks.html" class="btn secondary">Try Again</a>
         <a href="analyzer.html" class="btn primary">Open Text Analyzer</a>
+        <button class="btn ghost" id="copyResultBtn">Copy Result</button>
+        <a href="teacher.html" class="btn secondary">Teacher Dashboard</a>
       </div>
     </section>
   </main>
