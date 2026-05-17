@@ -5,9 +5,19 @@ const questionBank = [
     explanation: "This text is personal and has real feelings."
   },
   {
+    text: "Drawing is an enjoyable activity that helps students express creativity and develop imagination.",
+    answer: "AI",
+    explanation: "This text is formal, general and polished."
+  },
+  {
     text: "Technology plays an important role in modern education. It helps students access information and improve learning skills.",
     answer: "AI",
     explanation: "This text is formal, organized and general."
+  },
+  {
+    text: "I use online dictionaries when I do my English homework. Sometimes I do not know a word, so I check it quickly.",
+    answer: "Human",
+    explanation: "This text has a real school-life example."
   },
   {
     text: "I think a healthy lifestyle is important, but sometimes it is hard. I try to eat fruit, but I also like chips.",
@@ -15,14 +25,29 @@ const questionBank = [
     explanation: "This text has honest personal details."
   },
   {
+    text: "A healthy lifestyle includes proper nutrition, regular physical activity and enough sleep.",
+    answer: "AI",
+    explanation: "This text sounds like a general explanation."
+  },
+  {
     text: "Friendship plays an important role in people’s lives. A true friend provides support and helps a person overcome difficulties.",
     answer: "AI",
     explanation: "This text uses formal and general phrases."
   },
   {
+    text: "My best friend helps me when I do not understand homework. We also laugh a lot and talk after school.",
+    answer: "Human",
+    explanation: "This text has personal experience and natural language."
+  },
+  {
     text: "My school day starts early. I feel sleepy in the morning, but I like meeting my friends.",
     answer: "Human",
     explanation: "This text includes emotions and real school-life details."
+  },
+  {
+    text: "A school day is an important part of student life because it helps learners gain knowledge and communication skills.",
+    answer: "AI",
+    explanation: "This text is formal and general."
   },
   {
     text: "English is one of the most important languages in the world. It is used in education, travel and international communication.",
@@ -37,27 +62,7 @@ const questionBank = [
   {
     text: "Learning English provides students with many opportunities for future education, travel and international communication.",
     answer: "AI",
-    explanation: "This text sounds formal and general."
-  },
-  {
-    text: "I use online dictionaries when I do my English homework. Sometimes I do not know a word, so I check it quickly.",
-    answer: "Human",
-    explanation: "This text has a real school-life example."
-  },
-  {
-    text: "Online dictionaries are useful educational resources that help students expand their vocabulary and improve language skills.",
-    answer: "AI",
-    explanation: "This text uses formal vocabulary and sounds polished."
-  },
-  {
-    text: "My best friend helps me when I do not understand homework. We also laugh a lot and talk after school.",
-    answer: "Human",
-    explanation: "This text has personal experience and natural language."
-  },
-  {
-    text: "A true friend provides emotional support, shares positive moments and helps a person overcome difficulties.",
-    answer: "AI",
-    explanation: "This text is general and uses formal phrases."
+    explanation: "This text sounds formal and polished."
   },
   {
     text: "Sometimes grammar is hard for me, but I try to learn new words every week.",
@@ -98,6 +103,76 @@ const questionBank = [
     text: "Speaking practice helps students improve fluency, pronunciation and confidence in English communication.",
     answer: "AI",
     explanation: "This text is formal, clear and general."
+  },
+  {
+    text: "I do not always like writing essays because it takes time. But when the topic is interesting, I can write more easily.",
+    answer: "Human",
+    explanation: "This text has honest opinion and natural student language."
+  },
+  {
+    text: "Essay writing helps students organize their ideas, develop arguments and improve academic communication skills.",
+    answer: "AI",
+    explanation: "This text sounds academic and general."
+  },
+  {
+    text: "I like using videos in English lessons because I can hear real pronunciation and remember words better.",
+    answer: "Human",
+    explanation: "This text gives a personal classroom example."
+  },
+  {
+    text: "Educational videos are useful tools that support listening skills, vocabulary development and student engagement.",
+    answer: "AI",
+    explanation: "This text uses formal educational vocabulary."
+  },
+  {
+    text: "When I write a story, I usually choose simple words because I want my classmates to understand it.",
+    answer: "Human",
+    explanation: "This text sounds personal and natural."
+  },
+  {
+    text: "Story writing develops imagination, creativity and the ability to express ideas in a clear written form.",
+    answer: "AI",
+    explanation: "This text is polished and explanatory."
+  },
+  {
+    text: "I think AI is useful, but I do not want it to do all my homework. I still want to learn by myself.",
+    answer: "Human",
+    explanation: "This text has personal opinion and real student thinking."
+  },
+  {
+    text: "Artificial intelligence can support learning by providing explanations, correcting grammar and generating ideas.",
+    answer: "AI",
+    explanation: "This text sounds formal and informative."
+  },
+  {
+    text: "Our English teacher sometimes gives us dialogues. I like them because we can act and speak with a partner.",
+    answer: "Human",
+    explanation: "This text includes a real classroom situation."
+  },
+  {
+    text: "Dialogues are effective learning activities because they develop speaking skills and improve communication.",
+    answer: "AI",
+    explanation: "This text is general and academic."
+  },
+  {
+    text: "I like reading short stories in English because they are not too difficult and I can learn new words.",
+    answer: "Human",
+    explanation: "This text has simple language and personal opinion."
+  },
+  {
+    text: "Reading short stories in English helps learners expand vocabulary and develop reading comprehension skills.",
+    answer: "AI",
+    explanation: "This text sounds formal and educational."
+  },
+  {
+    text: "Sometimes I make mistakes in English, but I am not afraid because mistakes help me learn.",
+    answer: "Human",
+    explanation: "This text shows personal feelings and learning experience."
+  },
+  {
+    text: "Mistakes are a natural part of the learning process and can help students improve their language accuracy.",
+    answer: "AI",
+    explanation: "This text gives a polished general explanation."
   }
 ];
 
@@ -134,14 +209,61 @@ function shuffleArray(array) {
   return copiedArray;
 }
 
+function hasAlternatingPattern(items) {
+  const answers = items.map(item => item.answer);
+
+  let patternOne = true;
+  let patternTwo = true;
+
+  for (let i = 0; i < answers.length; i++) {
+    const expectedOne = i % 2 === 0 ? "Human" : "AI";
+    const expectedTwo = i % 2 === 0 ? "AI" : "Human";
+
+    if (answers[i] !== expectedOne) patternOne = false;
+    if (answers[i] !== expectedTwo) patternTwo = false;
+  }
+
+  return patternOne || patternTwo;
+}
+
+function hasTooManySameInRow(items) {
+  const answers = items.map(item => item.answer);
+
+  for (let i = 0; i < answers.length - 2; i++) {
+    if (answers[i] === answers[i + 1] && answers[i] === answers[i + 2]) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 function createRandomTasks() {
-  const aiQuestions = questionBank.filter(item => item.answer === "AI");
-  const humanQuestions = questionBank.filter(item => item.answer === "Human");
+  const aiQuestions = shuffleArray(questionBank.filter(item => item.answer === "AI"));
+  const humanQuestions = shuffleArray(questionBank.filter(item => item.answer === "Human"));
 
-  const randomAI = shuffleArray(aiQuestions).slice(0, TASK_COUNT / 2);
-  const randomHuman = shuffleArray(humanQuestions).slice(0, TASK_COUNT / 2);
+  let selected = [];
 
-  return shuffleArray([...randomAI, ...randomHuman]);
+  const aiCount = Math.random() > 0.5 ? 3 : 4;
+  const humanCount = TASK_COUNT - aiCount;
+
+  selected = [
+    ...aiQuestions.slice(0, aiCount),
+    ...humanQuestions.slice(0, humanCount)
+  ];
+
+  let mixedTasks = shuffleArray(selected);
+  let attempts = 0;
+
+  while (
+    (hasAlternatingPattern(mixedTasks) || hasTooManySameInRow(mixedTasks)) &&
+    attempts < 50
+  ) {
+    mixedTasks = shuffleArray(selected);
+    attempts++;
+  }
+
+  return mixedTasks;
 }
 
 function randomizeButtons() {
@@ -161,6 +283,11 @@ startBtn.addEventListener("click", () => {
   }
 
   tasks = createRandomTasks();
+
+  currentTask = 0;
+  score = 0;
+  answered = false;
+  answers = [];
 
   localStorage.setItem("currentStudentName", studentName);
 
