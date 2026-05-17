@@ -1,182 +1,145 @@
 const questionBank = [
+  // TYPE 1: single
   {
+    type: "single",
     text: "My favourite hobby is drawing. I started drawing when I was little. I like it because I feel calm when I draw.",
     answer: "Human",
+    options: ["AI", "Human"],
     explanation: "This text is personal and has real feelings."
   },
   {
-    text: "Drawing is an enjoyable activity that helps students express creativity and develop imagination.",
-    answer: "AI",
-    explanation: "This text is formal, general and polished."
-  },
-  {
+    type: "single",
     text: "Technology plays an important role in modern education. It helps students access information and improve learning skills.",
     answer: "AI",
+    options: ["AI", "Human"],
     explanation: "This text is formal, organized and general."
   },
   {
-    text: "I use online dictionaries when I do my English homework. Sometimes I do not know a word, so I check it quickly.",
-    answer: "Human",
-    explanation: "This text has a real school-life example."
-  },
-  {
-    text: "I think a healthy lifestyle is important, but sometimes it is hard. I try to eat fruit, but I also like chips.",
-    answer: "Human",
-    explanation: "This text has honest personal details."
-  },
-  {
-    text: "A healthy lifestyle includes proper nutrition, regular physical activity and enough sleep.",
-    answer: "AI",
-    explanation: "This text sounds like a general explanation."
-  },
-  {
-    text: "Friendship plays an important role in people’s lives. A true friend provides support and helps a person overcome difficulties.",
-    answer: "AI",
-    explanation: "This text uses formal and general phrases."
-  },
-  {
-    text: "My best friend helps me when I do not understand homework. We also laugh a lot and talk after school.",
-    answer: "Human",
-    explanation: "This text has personal experience and natural language."
-  },
-  {
-    text: "My school day starts early. I feel sleepy in the morning, but I like meeting my friends.",
-    answer: "Human",
-    explanation: "This text includes emotions and real school-life details."
-  },
-  {
-    text: "A school day is an important part of student life because it helps learners gain knowledge and communication skills.",
-    answer: "AI",
-    explanation: "This text is formal and general."
-  },
-  {
-    text: "English is one of the most important languages in the world. It is used in education, travel and international communication.",
-    answer: "AI",
-    explanation: "This text is clear and correct, but it sounds general and formal."
-  },
-  {
-    text: "I want to learn English because I can watch films, understand songs and talk with people from other countries.",
-    answer: "Human",
-    explanation: "This text has personal motivation and simple student language."
-  },
-  {
-    text: "Learning English provides students with many opportunities for future education, travel and international communication.",
-    answer: "AI",
-    explanation: "This text sounds formal and polished."
-  },
-  {
+    type: "single",
     text: "Sometimes grammar is hard for me, but I try to learn new words every week.",
     answer: "Human",
-    explanation: "This text sounds natural because it shows a real learning difficulty."
+    options: ["AI", "Human"],
+    explanation: "This text sounds natural and shows a real learning difficulty."
   },
   {
+    type: "single",
     text: "Grammar is an essential part of language learning because it helps students create correct and meaningful sentences.",
     answer: "AI",
+    options: ["AI", "Human"],
     explanation: "This text is formal and explanatory."
   },
+
+  // TYPE 2: compare
   {
-    text: "I like group work because I can talk with my classmates and share ideas. But sometimes it is noisy.",
-    answer: "Human",
-    explanation: "This text has a personal opinion and real classroom detail."
+    type: "compare",
+    text: `
+      <b>Text A:</b> I want to become a doctor because I want to help people. I know it is difficult, but I think it is important.<br><br>
+      <b>Text B:</b> A doctor is one of the most important professions in society. Doctors diagnose diseases and improve quality of life.
+    `,
+    answer: "Text A is Human, Text B is AI",
+    options: [
+      "Text A is Human, Text B is AI",
+      "Text A is AI, Text B is Human"
+    ],
+    explanation: "Text A has personal opinion. Text B is formal and general."
   },
   {
-    text: "Group work is an effective classroom method that develops communication, cooperation and problem-solving skills.",
-    answer: "AI",
-    explanation: "This text sounds academic and organized."
+    type: "compare",
+    text: `
+      <b>Text A:</b> Educational videos are useful tools that support listening skills and vocabulary development.<br><br>
+      <b>Text B:</b> I like using videos in English lessons because I can hear real pronunciation and remember words better.
+    `,
+    answer: "Text A is AI, Text B is Human",
+    options: [
+      "Text A is Human, Text B is AI",
+      "Text A is AI, Text B is Human"
+    ],
+    explanation: "Text A sounds formal. Text B gives a personal classroom example."
   },
   {
-    text: "I want to become a doctor because I want to help people. I know it is difficult, but I think it is important.",
-    answer: "Human",
-    explanation: "This text has personal opinion and simple vocabulary."
+    type: "compare",
+    text: `
+      <b>Text A:</b> I feel nervous before speaking English in class, but when my teacher supports me, I try to speak more.<br><br>
+      <b>Text B:</b> Speaking practice helps students improve fluency, pronunciation and confidence in English communication.
+    `,
+    answer: "Text A is Human, Text B is AI",
+    options: [
+      "Text A is Human, Text B is AI",
+      "Text A is AI, Text B is Human"
+    ],
+    explanation: "Text A includes feelings. Text B is formal and educational."
+  },
+
+  // TYPE 3: feature
+  {
+    type: "feature",
+    text: "Drawing is an enjoyable activity that helps students express creativity and develop imagination.",
+    answer: "Formal vocabulary",
+    options: ["Formal vocabulary", "Personal story", "Strong emotion", "Small mistake"],
+    explanation: "The text uses formal phrases like “express creativity” and “develop imagination.”"
   },
   {
-    text: "A doctor is one of the most important professions in society. Doctors diagnose diseases, treat patients and improve quality of life.",
-    answer: "AI",
-    explanation: "This text has formal vocabulary and general information."
+    type: "feature",
+    text: "I also like chips, but I try to eat fruit and drink water because I want to be healthier.",
+    answer: "Personal example",
+    options: ["Clear structure", "Personal example", "Academic style", "No emotion"],
+    explanation: "The text includes a real personal detail about chips, fruit and water."
   },
   {
-    text: "I feel nervous before speaking English in class, but when my teacher supports me, I try to speak more.",
-    answer: "Human",
-    explanation: "This text includes feelings and personal experience."
+    type: "feature",
+    text: "First, students can use AI for ideas. Second, they can check grammar. Finally, they should add their own opinion.",
+    answer: "Clear structure",
+    options: ["Clear structure", "No organization", "Only emotion", "Spelling mistake"],
+    explanation: "The words “First,” “Second,” and “Finally” show clear structure."
   },
   {
-    text: "Speaking practice helps students improve fluency, pronunciation and confidence in English communication.",
-    answer: "AI",
-    explanation: "This text is formal, clear and general."
+    type: "feature",
+    text: "I feel tired in the morning, but I like meeting my friends at school.",
+    answer: "Emotion",
+    options: ["Emotion", "Formal vocabulary", "General information", "Academic style"],
+    explanation: "The phrase “I feel tired” shows emotion."
+  },
+
+  // TYPE 4: reason
+  {
+    type: "reason",
+    text: "This text looks AI-like: “English provides students with opportunities for future education and international communication.” Why?",
+    answer: "It sounds formal and general.",
+    options: [
+      "It has many personal memories.",
+      "It sounds formal and general.",
+      "It has many spelling mistakes.",
+      "It uses slang."
+    ],
+    explanation: "AI-like texts often sound formal, general and polished."
   },
   {
-    text: "I do not always like writing essays because it takes time. But when the topic is interesting, I can write more easily.",
-    answer: "Human",
-    explanation: "This text has honest opinion and natural student language."
+    type: "reason",
+    text: "This text looks human-like: “I do not always like writing essays because it takes time, but interesting topics help me.” Why?",
+    answer: "It has personal opinion.",
+    options: [
+      "It has personal opinion.",
+      "It is written like a dictionary.",
+      "It has no emotions.",
+      "It is very academic."
+    ],
+    explanation: "Human writing often includes personal opinion and real feelings."
   },
   {
-    text: "Essay writing helps students organize their ideas, develop arguments and improve academic communication skills.",
-    answer: "AI",
-    explanation: "This text sounds academic and general."
-  },
-  {
-    text: "I like using videos in English lessons because I can hear real pronunciation and remember words better.",
-    answer: "Human",
-    explanation: "This text gives a personal classroom example."
-  },
-  {
-    text: "Educational videos are useful tools that support listening skills, vocabulary development and student engagement.",
-    answer: "AI",
-    explanation: "This text uses formal educational vocabulary."
-  },
-  {
-    text: "When I write a story, I usually choose simple words because I want my classmates to understand it.",
-    answer: "Human",
-    explanation: "This text sounds personal and natural."
-  },
-  {
-    text: "Story writing develops imagination, creativity and the ability to express ideas in a clear written form.",
-    answer: "AI",
-    explanation: "This text is polished and explanatory."
-  },
-  {
-    text: "I think AI is useful, but I do not want it to do all my homework. I still want to learn by myself.",
-    answer: "Human",
-    explanation: "This text has personal opinion and real student thinking."
-  },
-  {
-    text: "Artificial intelligence can support learning by providing explanations, correcting grammar and generating ideas.",
-    answer: "AI",
-    explanation: "This text sounds formal and informative."
-  },
-  {
-    text: "Our English teacher sometimes gives us dialogues. I like them because we can act and speak with a partner.",
-    answer: "Human",
-    explanation: "This text includes a real classroom situation."
-  },
-  {
-    text: "Dialogues are effective learning activities because they develop speaking skills and improve communication.",
-    answer: "AI",
-    explanation: "This text is general and academic."
-  },
-  {
-    text: "I like reading short stories in English because they are not too difficult and I can learn new words.",
-    answer: "Human",
-    explanation: "This text has simple language and personal opinion."
-  },
-  {
-    text: "Reading short stories in English helps learners expand vocabulary and develop reading comprehension skills.",
-    answer: "AI",
-    explanation: "This text sounds formal and educational."
-  },
-  {
-    text: "Sometimes I make mistakes in English, but I am not afraid because mistakes help me learn.",
-    answer: "Human",
-    explanation: "This text shows personal feelings and learning experience."
-  },
-  {
-    text: "Mistakes are a natural part of the learning process and can help students improve their language accuracy.",
-    answer: "AI",
-    explanation: "This text gives a polished general explanation."
+    type: "reason",
+    text: "A student says this text is AI-like: “Group work is an effective classroom method that develops cooperation and problem-solving skills.” What sign did the student notice?",
+    answer: "Academic vocabulary",
+    options: [
+      "Personal story",
+      "Academic vocabulary",
+      "Small grammar mistake",
+      "Informal words"
+    ],
+    explanation: "Words like “effective method,” “cooperation,” and “problem-solving skills” sound academic."
   }
 ];
 
-const TASK_COUNT = 6;
+const TASK_COUNT = 8;
 
 const studentBox = document.getElementById("studentBox");
 const diagnosisCard = document.getElementById("diagnosisCard");
@@ -186,8 +149,7 @@ const startBtn = document.getElementById("startBtn");
 const questionCounter = document.getElementById("questionCounter");
 const liveScore = document.getElementById("liveScore");
 const taskText = document.getElementById("taskText");
-const aiBtn = document.getElementById("aiBtn");
-const humanBtn = document.getElementById("humanBtn");
+const taskButtons = document.querySelector(".task-buttons");
 const taskFeedback = document.getElementById("taskFeedback");
 const nextBtn = document.getElementById("nextBtn");
 
@@ -209,69 +171,42 @@ function shuffleArray(array) {
   return copiedArray;
 }
 
-function hasAlternatingPattern(items) {
-  const answers = items.map(item => item.answer);
-
-  let patternOne = true;
-  let patternTwo = true;
-
-  for (let i = 0; i < answers.length; i++) {
-    const expectedOne = i % 2 === 0 ? "Human" : "AI";
-    const expectedTwo = i % 2 === 0 ? "AI" : "Human";
-
-    if (answers[i] !== expectedOne) patternOne = false;
-    if (answers[i] !== expectedTwo) patternTwo = false;
-  }
-
-  return patternOne || patternTwo;
-}
-
-function hasTooManySameInRow(items) {
-  const answers = items.map(item => item.answer);
-
-  for (let i = 0; i < answers.length - 2; i++) {
-    if (answers[i] === answers[i + 1] && answers[i] === answers[i + 2]) {
+function hasTooManySameTypes(items) {
+  for (let i = 0; i < items.length - 2; i++) {
+    if (
+      items[i].type === items[i + 1].type &&
+      items[i].type === items[i + 2].type
+    ) {
       return true;
     }
   }
-
   return false;
 }
 
 function createRandomTasks() {
-  const aiQuestions = shuffleArray(questionBank.filter(item => item.answer === "AI"));
-  const humanQuestions = shuffleArray(questionBank.filter(item => item.answer === "Human"));
+  const singleTasks = shuffleArray(questionBank.filter(item => item.type === "single")).slice(0, 3);
+  const compareTasks = shuffleArray(questionBank.filter(item => item.type === "compare")).slice(0, 2);
+  const featureTasks = shuffleArray(questionBank.filter(item => item.type === "feature")).slice(0, 2);
+  const reasonTasks = shuffleArray(questionBank.filter(item => item.type === "reason")).slice(0, 1);
 
-  let selected = [];
-
-  const aiCount = Math.random() > 0.5 ? 3 : 4;
-  const humanCount = TASK_COUNT - aiCount;
-
-  selected = [
-    ...aiQuestions.slice(0, aiCount),
-    ...humanQuestions.slice(0, humanCount)
-  ];
-
-  let mixedTasks = shuffleArray(selected);
+  let selected = [...singleTasks, ...compareTasks, ...featureTasks, ...reasonTasks];
+  let mixed = shuffleArray(selected);
   let attempts = 0;
 
-  while (
-    (hasAlternatingPattern(mixedTasks) || hasTooManySameInRow(mixedTasks)) &&
-    attempts < 50
-  ) {
-    mixedTasks = shuffleArray(selected);
+  while (hasTooManySameTypes(mixed) && attempts < 50) {
+    mixed = shuffleArray(selected);
     attempts++;
   }
 
-  return mixedTasks;
+  return mixed;
 }
 
-function randomizeButtons() {
-  const buttonsContainer = document.querySelector(".task-buttons");
-  const buttons = shuffleArray([aiBtn, humanBtn]);
-
-  buttonsContainer.innerHTML = "";
-  buttons.forEach(button => buttonsContainer.appendChild(button));
+function getTaskLabel(type) {
+  if (type === "single") return "Choose: AI or Human";
+  if (type === "compare") return "Compare two texts";
+  if (type === "feature") return "Find the main feature";
+  if (type === "reason") return "Choose the reason";
+  return "Task";
 }
 
 startBtn.addEventListener("click", () => {
@@ -300,21 +235,37 @@ startBtn.addEventListener("click", () => {
 function loadTask() {
   const task = tasks[currentTask];
 
-  questionCounter.textContent = `Question ${currentTask + 1} / ${tasks.length}`;
+  questionCounter.textContent = `Question ${currentTask + 1} / ${tasks.length} — ${getTaskLabel(task.type)}`;
   liveScore.textContent = `Score: ${score}`;
-  taskText.textContent = task.text;
+
+  taskText.innerHTML = task.text;
 
   taskFeedback.style.display = "none";
   taskFeedback.textContent = "";
   nextBtn.style.display = "none";
   answered = false;
 
-  aiBtn.disabled = false;
-  humanBtn.disabled = false;
-  aiBtn.style.opacity = "1";
-  humanBtn.style.opacity = "1";
+  renderOptions(task);
+}
 
-  randomizeButtons();
+function renderOptions(task) {
+  taskButtons.innerHTML = "";
+
+  const shuffledOptions = shuffleArray(task.options);
+
+  shuffledOptions.forEach(option => {
+    const button = document.createElement("button");
+    button.className = "btn option-btn";
+    button.textContent = option;
+
+    if (option === "AI") button.classList.add("ai-btn");
+    else if (option === "Human") button.classList.add("human-btn");
+    else button.classList.add("neutral-btn");
+
+    button.addEventListener("click", () => chooseAnswer(option));
+
+    taskButtons.appendChild(button);
+  });
 }
 
 function chooseAnswer(selected) {
@@ -336,6 +287,7 @@ function chooseAnswer(selected) {
 
   answers.push({
     question: currentTask + 1,
+    type: task.type,
     text: task.text,
     selected: selected,
     correct: task.answer,
@@ -346,14 +298,12 @@ function chooseAnswer(selected) {
   taskFeedback.style.display = "block";
   nextBtn.style.display = "inline-flex";
 
-  aiBtn.disabled = true;
-  humanBtn.disabled = true;
-  aiBtn.style.opacity = "0.7";
-  humanBtn.style.opacity = "0.7";
+  const buttons = taskButtons.querySelectorAll("button");
+  buttons.forEach(button => {
+    button.disabled = true;
+    button.style.opacity = "0.75";
+  });
 }
-
-aiBtn.addEventListener("click", () => chooseAnswer("AI"));
-humanBtn.addEventListener("click", () => chooseAnswer("Human"));
 
 nextBtn.addEventListener("click", () => {
   currentTask++;
