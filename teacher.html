@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Teacher Dashboard</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" 
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+  <nav class="nav page-nav">
+    <div class="logo">
+      <span class="logo-icon">✦</span>
+      <span>AI or Human?</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tasks.html">Diagnosis</a>
+      <a href="analyzer.html">Analyzer</a>
+      <a href="teacher.html">Teacher</a>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <section class="section-title">
+      <p class="tag">Teacher Dashboard</p>
+
+      <h1 class="page-title">Students’ Results</h1>
+
+      <p>
+        This page shows diagnosis results saved in this browser.
+      </p>
+    </section>
+
+    <section class="teacher-panel">
+      <div class="teacher-actions">
+        <button class="btn primary" id="downloadCsvBtn">Download CSV</button>
+        <button class="btn ghost" id="clearResultsBtn">Clear Results</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="teacher-table">
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Student Name</th>
+              <th>Score</th>
+              <th>Percentage</th>
+              <th>Level</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+
+          <tbody id="resultsTableBody"></tbody>
+        </table>
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        No student results yet.
+      </div>
+    </section>
+  </main>
+
+  <script src="js/teacher.js"></script>
+</body>
+</html>
