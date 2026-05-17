@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Text Analyzer</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" 
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav class="nav page-nav">
+    <div class="logo">
+      <span class="logo-icon">✦</span>
+      <span>AI or Human?</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tasks.html">Diagnosis</a>
+      <a href="analyzer.html">Analyzer</a>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <section class="section-title">
+      <p class="tag">Text Analyzer</p>
+      <h1 class="page-title">Analyze Any English Text</h1>
+      <p>
+        Paste a text and get AI-like / Human-like result with explanation.
+      </p>
+    </section>
+
+    <section class="analyzer-grid">
+      <div class="input-panel">
+        <div class="panel-top">
+          <h2>Your Text</h2>
+          <button id="sampleBtn" class="small-btn">Use Sample</button>
+        </div>
+
+        <textarea id="textInput" placeholder="Paste or write your English text here..."></textarea>
+
+        <div class="button-row">
+          <button id="analyzeBtn" class="btn primary">Analyze Text</button>
+          <button id="clearBtn" class="btn ghost">Clear</button>
+        </div>
+
+        <p class="note">
+          This is an educational heuristic analyzer. It is not a professional AI detector.
+        </p>
+      </div>
+
+      <div class="result-panel">
+        <h2>Result</h2>
+
+        <div class="score-circles">
+          <div class="circle" id="aiCircle">
+            <span id="aiPercent">0%</span>
+            <small>AI-like</small>
+          </div>
+
+          <div class="circle human-circle" id="humanCircle">
+            <span id="humanPercent">0%</span>
+            <small>Human-like</small>
+          </div>
+        </div>
+
+        <div class="verdict" id="verdict">
+          Add a text and click “Analyze Text”.
+        </div>
+
+        <div class="feedback-list" id="feedbackList"></div>
+      </div>
+    </section>
+
+    <section class="workbook-box">
+      <h2>Checklist</h2>
+      <p>Use this checklist to understand the text better.</p>
+
+      <div class="checklist-grid">
+        <label><input type="checkbox"> Grammar is almost perfect</label>
+        <label><input type="checkbox"> Vocabulary is formal</label>
+        <label><input type="checkbox"> Structure is very clear</label>
+        <label><input type="checkbox"> There are personal feelings</label>
+        <label><input type="checkbox"> There are real-life examples</label>
+        <label><input type="checkbox"> Text sounds natural for a student</label>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/analyzer.js"></script>
+</body>
+</html>
