@@ -3,355 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI or Human? English Text Analyzer</title>
-
+  <title>Diagnosis Tasks</title>
   <link rel="stylesheet" href="css/style.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link 
-    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" 
-    rel="stylesheet"
-  >
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" 
+    rel="stylesheet">
 </head>
 
 <body>
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">
-        <span class="logo-icon">✦</span>
-        <span>AI or Human?</span>
-      </div>
+  <nav class="nav page-nav">
+    <div class="logo">
+      <span class="logo-icon">✦</span>
+      <span>AI or Human?</span>
+    </div>
 
-      <div class="nav-links">
-        <a href="#learn">Learn</a>
-        <a href="#analyzer">Analyzer</a>
-        <a href="#workbook">Workbook</a>
-        <a href="#quiz">Quiz</a>
-        <a href="#results">Results</a>
-      </div>
-    </nav>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tasks.html">Diagnosis</a>
+      <a href="analyzer.html">Analyzer</a>
+    </div>
+  </nav>
 
-    <section class="hero-content">
-      <div class="hero-text">
-        <p class="tag">Grade 8 English Project</p>
-        <h1>AI or Human? <br><span>English Text Analyzer</span></h1>
-        <p class="hero-description">
-          A digital workbook that helps students compare AI-written and human-written English texts.
-          Analyze grammar, vocabulary, emotions, structure and personal examples.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#analyzer" class="btn primary">Start Analyzing</a>
-          <a href="#learn" class="btn secondary">Learn Differences</a>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <div class="robot-face">
-          <div class="eyes">
-            <span></span>
-            <span></span>
-          </div>
-          <div class="mouth"></div>
-        </div>
-
-        <div class="chat-bubble ai">
-          AI: “This text is well-organized and formal.”
-        </div>
-
-        <div class="chat-bubble human">
-          Human: “I write with my own feelings and examples.”
-        </div>
-
-        <div class="mini-stats">
-          <div>
-            <strong>74%</strong>
-            <span>AI texts found</span>
-          </div>
-          <div>
-            <strong>84%</strong>
-            <span>Compare skills</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  </header>
-
-  <main>
-    <section id="learn" class="section">
-      <div class="section-heading">
-        <p class="tag">Theoretical Part</p>
-        <h2>AI Writing vs Human Writing</h2>
-        <p>
-          AI and human texts can both be useful, but they sound different.
-          Students can compare them using clear criteria.
-        </p>
-      </div>
-
-      <div class="comparison-grid">
-        <div class="compare-card ai-card">
-          <div class="card-icon">🤖</div>
-          <h3>AI Writing</h3>
-          <ul>
-            <li>Usually correct grammar</li>
-            <li>Formal vocabulary</li>
-            <li>Very clear structure</li>
-            <li>General examples</li>
-            <li>Less personal emotion</li>
-          </ul>
-        </div>
-
-        <div class="vs-circle">VS</div>
-
-        <div class="compare-card human-card">
-          <div class="card-icon">🧑‍🎓</div>
-          <h3>Human Writing</h3>
-          <ul>
-            <li>May have small mistakes</li>
-            <li>Simple and natural words</li>
-            <li>Personal examples</li>
-            <li>Real emotions</li>
-            <li>Individual writing style</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="example-box">
-        <h3>Example</h3>
-        <div class="example-columns">
-          <div>
-            <span class="label human-label">Human</span>
-            <p>I like drawing because it makes me calm. Sometimes I draw after school when I feel tired.</p>
-          </div>
-
-          <div>
-            <span class="label ai-label">AI</span>
-            <p>Drawing is an enjoyable activity that helps people relax and express their creativity.</p>
-          </div>
-        </div>
-      </div>
+  <main class="page-main">
+    <section class="section-title">
+      <p class="tag">Diagnosis Tasks</p>
+      <h1 class="page-title">AI or Human?</h1>
+      <p>
+        Read each text and choose who wrote it. After finishing, you will see your personal result.
+      </p>
     </section>
 
-    <section id="analyzer" class="section analyzer-section">
-      <div class="section-heading">
-        <p class="tag">Practical Product</p>
-        <h2>Analyze Any English Text</h2>
-        <p>
-          Paste any English text. The tool will check signs of AI-like and human-like writing.
-        </p>
+    <section class="diagnosis-card">
+      <div class="progress-row">
+        <span id="questionCounter">Question 1 / 6</span>
+        <span id="liveScore">Score: 0</span>
       </div>
 
-      <div class="analyzer-layout">
-        <div class="textarea-card">
-          <div class="card-top">
-            <h3>Your Text</h3>
-            <button id="sampleBtn" class="small-btn">Use Sample</button>
-          </div>
+      <div class="task-text" id="taskText"></div>
 
-          <textarea 
-            id="textInput" 
-            placeholder="Paste or write your English text here..."
-          ></textarea>
-
-          <div class="analyzer-actions">
-            <button id="analyzeBtn" class="btn primary">Analyze Text</button>
-            <button id="clearBtn" class="btn ghost">Clear</button>
-          </div>
-
-          <p class="note">
-            Note: This is an educational analyzer, not a professional AI detector.
-            It helps students notice writing features.
-          </p>
-        </div>
-
-        <div class="result-card">
-          <h3>Analysis Result</h3>
-
-          <div class="score-wrapper">
-            <div class="circle-score" id="aiScoreCircle">
-              <span id="aiPercent">0%</span>
-              <small>AI-like</small>
-            </div>
-
-            <div class="circle-score human-score" id="humanScoreCircle">
-              <span id="humanPercent">0%</span>
-              <small>Human-like</small>
-            </div>
-          </div>
-
-          <div class="result-verdict" id="verdict">
-            Add a text and click “Analyze Text”.
-          </div>
-
-          <div class="feedback-list" id="feedbackList"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="workbook" class="section workbook-section">
-      <div class="section-heading">
-        <p class="tag">Printable Workbook Style</p>
-        <h2>AI or Human? Checklist</h2>
-        <p>
-          Students can use this checklist during English lessons.
-        </p>
+      <div class="task-buttons">
+        <button class="btn ai-btn" id="aiBtn">AI</button>
+        <button class="btn human-btn" id="humanBtn">Human</button>
       </div>
 
-      <div class="workbook-card">
-        <div class="workbook-header">
-          <div>
-            <h3>Text Detective Checklist</h3>
-            <p>Read the text and tick the signs you can find.</p>
-          </div>
-          <div class="magnifier">🔎</div>
-        </div>
+      <div class="task-feedback" id="taskFeedback"></div>
 
-        <div class="checklist">
-          <label><input type="checkbox"> The grammar is almost perfect.</label>
-          <label><input type="checkbox"> The vocabulary sounds formal.</label>
-          <label><input type="checkbox"> The structure is very clear.</label>
-          <label><input type="checkbox"> The text has real emotions.</label>
-          <label><input type="checkbox"> The text has personal examples.</label>
-          <label><input type="checkbox"> The text sounds natural for a student.</label>
-          <label><input type="checkbox"> The text has small mistakes.</label>
-        </div>
-
-        <div class="answer-box">
-          <h4>My Answer:</h4>
-          <div class="choice-row">
-            <button class="choice-chip">AI</button>
-            <button class="choice-chip">Human</button>
-          </div>
-
-          <label for="reason">Why?</label>
-          <textarea id="reason" placeholder="Write your reason here..."></textarea>
-        </div>
-      </div>
-    </section>
-
-    <section id="quiz" class="section quiz-section">
-      <div class="section-heading">
-        <p class="tag">Interactive Task</p>
-        <h2>Mini Quiz: AI or Human?</h2>
-        <p>
-          Read the text and choose the correct answer.
-        </p>
-      </div>
-
-      <div class="quiz-card">
-        <div class="quiz-progress">
-          <span id="questionNumber">Question 1 / 5</span>
-          <span id="quizScore">Score: 0</span>
-        </div>
-
-        <div class="quiz-text" id="quizText"></div>
-
-        <div class="quiz-buttons">
-          <button class="btn ai-choice" data-answer="AI">AI</button>
-          <button class="btn human-choice" data-answer="Human">Human</button>
-        </div>
-
-        <div class="quiz-feedback" id="quizFeedback"></div>
-
-        <button id="nextBtn" class="btn secondary next-btn">Next Question</button>
-      </div>
-    </section>
-
-    <section id="results" class="section results-section">
-      <div class="section-heading">
-        <p class="tag">Experiment Results</p>
-        <h2>Before and After Using the Product</h2>
-        <p>
-          The product helped students improve text analysis and critical thinking skills.
-        </p>
-      </div>
-
-      <div class="stats-grid">
-        <div class="stat-card">
-          <strong>20</strong>
-          <span>Students</span>
-        </div>
-        <div class="stat-card">
-          <strong>8</strong>
-          <span>Texts</span>
-        </div>
-        <div class="stat-card">
-          <strong>74%</strong>
-          <span>AI texts identified</span>
-        </div>
-        <div class="stat-card">
-          <strong>70%</strong>
-          <span>Average result</span>
-        </div>
-      </div>
-
-      <div class="bars-card">
-        <h3>Skill Improvement</h3>
-
-        <div class="bar-row">
-          <span>AI features</span>
-          <div class="bar-bg"><div class="bar before" style="width:45%">45%</div></div>
-          <div class="bar-bg"><div class="bar after" style="width:82%">82%</div></div>
-        </div>
-
-        <div class="bar-row">
-          <span>Human features</span>
-          <div class="bar-bg"><div class="bar before" style="width:50%">50%</div></div>
-          <div class="bar-bg"><div class="bar after" style="width:78%">78%</div></div>
-        </div>
-
-        <div class="bar-row">
-          <span>Compare texts</span>
-          <div class="bar-bg"><div class="bar before" style="width:48%">48%</div></div>
-          <div class="bar-bg"><div class="bar after" style="width:84%">84%</div></div>
-        </div>
-
-        <div class="bar-row">
-          <span>Explain answers</span>
-          <div class="bar-bg"><div class="bar before" style="width:42%">42%</div></div>
-          <div class="bar-bg"><div class="bar after" style="width:76%">76%</div></div>
-        </div>
-
-        <div class="bar-row">
-          <span>Critical thinking</span>
-          <div class="bar-bg"><div class="bar before" style="width:46%">46%</div></div>
-          <div class="bar-bg"><div class="bar after" style="width:80%">80%</div></div>
-        </div>
-
-        <div class="legend">
-          <span><i class="before-dot"></i> Before</span>
-          <span><i class="after-dot"></i> After</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section conclusion-section">
-      <div class="conclusion-card">
-        <h2>Conclusion</h2>
-        <p>
-          AI writing and human writing have clear differences. AI texts are usually correct and formal,
-          while human texts are more personal and natural. This product helps students compare texts,
-          explain their answers and develop critical thinking.
-        </p>
-
-        <h3>Recommendations</h3>
-        <div class="recommendations">
-          <span>Do not copy AI texts.</span>
-          <span>Use AI for ideas and structure.</span>
-          <span>Add personal examples.</span>
-          <span>Keep your own writing style.</span>
-        </div>
-      </div>
+      <button class="btn secondary next-task" id="nextBtn">Next Task</button>
     </section>
   </main>
 
-  <footer>
-    <p>
-      “AI or Human? English Text Analyzer” — Zerde Research Project, Grade 8
-    </p>
-  </footer>
-
-  <script src="js/script.js"></script>
+  <script src="js/tasks.js"></script>
 </body>
 </html>
