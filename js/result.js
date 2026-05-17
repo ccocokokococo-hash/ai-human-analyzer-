@@ -3,12 +3,16 @@ const levelBadge = document.getElementById("levelBadge");
 const percentScore = document.getElementById("percentScore");
 const criticalLevel = document.getElementById("criticalLevel");
 const recommendationText = document.getElementById("recommendationText");
+const studentResultName = document.getElementById("studentResultName");
+const copyResultBtn = document.getElementById("copyResultBtn");
 
 const score = Number(localStorage.getItem("diagnosisScore")) || 0;
 const total = Number(localStorage.getItem("diagnosisTotal")) || 6;
+const studentName = localStorage.getItem("diagnosisStudentName") || "Student";
 
 const percent = Math.round((score / total) * 100);
 
+studentResultName.textContent = studentName;
 bigScore.textContent = `${score} / ${total}`;
 percentScore.textContent = `${percent}%`;
 
@@ -45,3 +49,26 @@ if (percent >= 85) {
 levelBadge.textContent = level;
 criticalLevel.textContent = critical;
 recommendationText.textContent = recommendation;
+
+copyResultBtn.addEventListener("click", async () => {
+  const resultText = `
+AI or Human? English Text Analyzer
+Student: ${studentName}
+Result: ${score} / ${total}
+Percentage: ${percent}%
+Level: ${level}
+Critical Thinking Level: ${critical}
+Recommendation: ${recommendation}
+  `.trim();
+
+  try {
+    await navigator.clipboard.writeText(resultText);
+    copyResultBtn.textContent = "Copied!";
+
+    setTimeout(() => {
+      copyResultBtn.textContent = "Copy Result";
+    }, 1500);
+  } catch {
+    alert(resultText);
+  }
+});
