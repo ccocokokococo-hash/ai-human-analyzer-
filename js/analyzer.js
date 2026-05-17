@@ -56,6 +56,7 @@ function countMatches(text, words) {
 
 function hasStructureWords(text) {
   const lower = text.toLowerCase();
+
   const structureWords = [
     "first", "second", "third", "finally", "in conclusion",
     "however", "therefore", "for example", "as a result"
