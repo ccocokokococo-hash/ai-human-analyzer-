@@ -3,14 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Diagnosis Tasks</title>
+
   <link rel="stylesheet" href="css/style.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link 
     href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" 
-    rel="stylesheet">
+    rel="stylesheet"
+  >
 </head>
 
 <body>
@@ -24,6 +27,7 @@
       <a href="index.html">Home</a>
       <a href="tasks.html">Diagnosis</a>
       <a href="analyzer.html">Analyzer</a>
+      <a href="teacher.html">Teacher</a>
     </div>
   </nav>
 
@@ -32,11 +36,25 @@
       <p class="tag">Diagnosis Tasks</p>
       <h1 class="page-title">AI or Human?</h1>
       <p>
-        Read each text and choose who wrote it. After finishing, you will see your personal result.
+        Write your name, read each text and choose who wrote it. After finishing,
+        you will see your personal result.
       </p>
     </section>
 
-    <section class="diagnosis-card">
+    <section class="diagnosis-card" id="studentBox">
+      <h2>Student Information</h2>
+      <p>Write your name before starting the diagnosis.</p>
+
+      <input 
+        type="text" 
+        id="studentName" 
+        placeholder="Example: Bulat Leila"
+      >
+
+      <button class="btn primary" id="startBtn">Start Tasks</button>
+    </section>
+
+    <section class="diagnosis-card hidden" id="diagnosisCard">
       <div class="progress-row">
         <span id="questionCounter">Question 1 / 6</span>
         <span id="liveScore">Score: 0</span>
