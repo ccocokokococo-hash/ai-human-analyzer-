@@ -820,3 +820,18 @@ footer {
     font-size: 58px;
   }
 }
+.option-btn {
+  background: white;
+  color: var(--dark);
+  border: 2px solid rgba(47,128,237,0.18);
+  box-shadow: 0 10px 22px rgba(16,42,67,0.08);
+}
+
+.option-btn:hover {
+  border-color: var(--blue);
+}
+
+.neutral-btn {
+  background: linear-gradient(135deg, #ffffff, #f4f8ff);
+  color: var(--dark);
+}
