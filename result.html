@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Result</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" 
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav class="nav page-nav">
+    <div class="logo">
+      <span class="logo-icon">✦</span>
+      <span>AI or Human?</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="tasks.html">Diagnosis</a>
+      <a href="analyzer.html">Analyzer</a>
+    </div>
+  </nav>
+
+  <main class="page-main">
+    <section class="result-page-card">
+      <p class="tag">Personal Result</p>
+      <h1>Your Diagnosis Result</h1>
+
+      <div class="big-score" id="bigScore">0 / 6</div>
+      <div class="level-badge" id="levelBadge">Level</div>
+
+      <div class="result-details">
+        <div>
+          <strong id="percentScore">0%</strong>
+          <span>Correct answers</span>
+        </div>
+
+        <div>
+          <strong id="criticalLevel">Medium</strong>
+          <span>Critical thinking level</span>
+        </div>
+      </div>
+
+      <div class="recommendation-box">
+        <h2>Recommendation</h2>
+        <p id="recommendationText"></p>
+      </div>
+
+      <div class="button-row center">
+        <a href="tasks.html" class="btn secondary">Try Again</a>
+        <a href="analyzer.html" class="btn primary">Open Text Analyzer</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/result.js"></script>
+</body>
+</html>
